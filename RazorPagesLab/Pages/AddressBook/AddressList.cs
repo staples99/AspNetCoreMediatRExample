@@ -5,7 +5,7 @@ namespace RazorPagesLab.Pages.AddressBook
 {
     public static class AddressDb
     {
-        public static List<AddressBookEntry> Addresses { get; set; } = new List<AddressBookEntry>();
+        public static List<AddressBookEntry> Addresses { get; } = new List<AddressBookEntry>();
     }
 
     public class AddressBookEntry

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using MediatR;
 
@@ -7,7 +8,7 @@ namespace RazorPagesLab.Pages.AddressBook
     public class UpdateAddressRequest
         : IRequest
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
 
         [Required(ErrorMessage = "Address line 1 is required.")]
         [DisplayName("Address Line 1")]
