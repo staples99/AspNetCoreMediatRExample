@@ -8,11 +8,18 @@ namespace RazorPagesLab.Pages.AddressBook
     public class CreateAddressHandler
         : IRequestHandler<CreateAddressRequest, Guid>
     {
+		private readonly IRepo<AddressBookEntry> _repo;
+
+		public CreateAddressHandler(IRepo<AddressBookEntry> repo)
+		{
+			_repo = repo;
+		}
+
         public async Task<Guid> Handle(CreateAddressRequest request, CancellationToken cancellationToken)
         {
             var entry = AddressBookEntry.Create(request.Line1, request.Line2, request.City, request.State,
                 request.PostalCode);
-            AddressDb.Addresses.Add(entry);
+			_repo.Add(entry);
             return await Task.FromResult(entry.Id);
         }
     }

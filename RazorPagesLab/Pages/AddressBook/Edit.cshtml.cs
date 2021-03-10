@@ -10,16 +10,26 @@ namespace RazorPagesLab.Pages.AddressBook
 {
     public class EditModel : PageModel
 	{
+		private readonly IRepo<AddressBookEntry> _repo;
+		private readonly IMediator _mediator;
+
 		[BindProperty] public UpdateAddressRequest UpdateAddressRequest { get; set; }
+
+		public EditModel(IRepo<AddressBookEntry> repo, IMediator mediator)
+		{
+			_repo = repo;
+			_mediator = mediator;
+		}
 
         public void OnGet(Guid id)
         {
-            // Todo: Get address book entry, set UpdateAddressRequest fields.
+            // Todo: Use repo to get address book entry, set UpdateAddressRequest fields.
 		}
 
-        public void OnPost()
+        public ActionResult OnPost()
         {
-			// Todo: "Persist" updated address book entry
-        }
+			// Todo: Use mediator to send a "command" to update the address book entry, redirect to entry list.
+			return Page();
+		}
     }
 }

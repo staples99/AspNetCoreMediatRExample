@@ -21,6 +21,7 @@ namespace RazorPagesLab
 		{
 			services.AddRazorPages();
 			services.AddMediatR(typeof(Startup).Assembly);
+			services.AddSingleton(typeof(IRepo<>), typeof(Repository<>));
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

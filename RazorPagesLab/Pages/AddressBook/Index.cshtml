@@ -1,5 +1,4 @@
 ﻿@page
-@using RazorPagesLab.Pages.AddressBook
 @model RazorPagesLab.Pages.AddressBook.IndexModel
 @{
     ViewData["Title"] = "Address Book";
@@ -11,7 +10,7 @@
     <a asp-page="Create">Create New Entry</a>
 
     <ul class="list-group">
-        @foreach (var entry in AddressDb.Addresses)
+        @foreach (var entry in Model.AddressBookEntries)
         {
             <li class="list-group-item">
                 <div class="row">
