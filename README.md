@@ -8,7 +8,7 @@ This is the beginnings of a crude address book application using ASP.NET Core 
  - Assess the quality and thoroughness of code submitted.
 		 
 
-Install (if needed), the dotnet core runtime & sdk: https://dotnet.microsoft.com/download/dotnet/5.0
+Install (if needed), the dotnet core runtime & sdk: https://dotnet.microsoft.com/download/dotnet/6.0
 
 Clone repo at:<br />
 https://github.com/footedr/AspNetCoreMediatRExample
