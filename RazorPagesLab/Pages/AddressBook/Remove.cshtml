@@ -1,0 +1,17 @@
+@page
+@model RemoveModel
+@{
+	ViewData["Title"] = "Delete Address Book Entry";
+}
+
+<h2>Are you sure you want to delete:</h2>
+
+<form asp-page="Delete"
+	method="post">
+	<span>@ViewData["Message"]</span>
+
+	<button type="submit"
+			class="btn btn-primary">
+		Delete Address
+	</button>
+</form>

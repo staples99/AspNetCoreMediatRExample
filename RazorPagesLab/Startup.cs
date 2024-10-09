@@ -20,7 +20,9 @@ public class Startup
 	public void ConfigureServices(IServiceCollection services)
 	{
 		services.AddRazorPages();
-		services.AddMediatR(typeof(Startup).Assembly);
+		services.AddMediatR(cfg => {
+			cfg.RegisterServicesFromAssembly(typeof(Startup).Assembly);
+		});
 		services.AddSingleton(typeof(IRepo<>), typeof(Repository<>));
 	}
 
