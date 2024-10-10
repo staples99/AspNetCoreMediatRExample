@@ -22,14 +22,19 @@ public class EditModel : PageModel
 
 	public void OnGet(Guid id)
 	{
-		// Use repo to get address book entry, set UpdateAddressRequest fields.
+		// use the unique id to get the address book entry in the repo
 		var result = _repo.Find(new EntryByIdSpecification(id));
-		if (result[0] != null) {
-		UpdateAddressRequest.Line1 = result[0].Line1;
-		UpdateAddressRequest.Line2 = result[0].Line2;
-		UpdateAddressRequest.City = result[0].City;
-		UpdateAddressRequest.State = result[0].State;
-		UpdateAddressRequest.PostalCode = result[0].PostalCode;
+		// if an entry is found, set UpdateAddressRequest fields
+		if (result[0] != null) 
+		{
+			NotFound();
+		} else
+		{ 
+			UpdateAddressRequest.Line1 = result[0].Line1;
+			UpdateAddressRequest.Line2 = result[0].Line2;
+			UpdateAddressRequest.City = result[0].City;
+			UpdateAddressRequest.State = result[0].State;
+			UpdateAddressRequest.PostalCode = result[0].PostalCode;
 		}
 	}
 

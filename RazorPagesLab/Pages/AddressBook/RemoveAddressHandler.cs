@@ -17,9 +17,13 @@ public class RemoveAddressHandler
 
 	public async Task Handle(RemoveAddressRequest request, CancellationToken cancellationToken)
 	{
+		// use the unique id to get the entry in the repo
 		var result = _repo.Find(new EntryByIdSpecification(request.Id));
+		// assign the first entry in the list to variable entry, assuming there are no duplicate ids
 		var entry = result[0];
+		// remove the entry from the repo
 		_repo.Remove(entry);
+		// completed task
 		await Task.FromResult(entry.Id);
 	}
 }
