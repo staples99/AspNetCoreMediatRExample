@@ -1,6 +1,5 @@
 ﻿using System;
 using MediatR;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -25,7 +24,7 @@ public class EditModel : PageModel
 		// use the unique id to get the address book entry in the repo
 		var result = _repo.Find(new EntryByIdSpecification(id));
 		// if an entry is found, set UpdateAddressRequest fields
-		if (result[0] != null) 
+		if (result[0] == null) 
 		{
 			NotFound();
 		} else
